@@ -2,7 +2,7 @@ import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
 export class CreateMessages1619028444416 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
-    queryRunner.createTable(
+    await queryRunner.createTable(
       new Table({
         name: "messages",
         columns: [
@@ -31,7 +31,7 @@ export class CreateMessages1619028444416 implements MigrationInterface {
         ],
         foreignKeys: [
           {
-            name: "FKuser",
+            name: "FKUser",
             referencedTableName: "users",
             referencedColumnNames: ["id"],
             columnNames: ["user_id"],
@@ -43,7 +43,7 @@ export class CreateMessages1619028444416 implements MigrationInterface {
     );
   }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
-        queryRunner.dropTable("messages");
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropTable("messages");
   }
 }
