@@ -19,6 +19,9 @@ app.set("view engine", "html");
 app.get("/pages/client", (req, res) => {
   return res.render("html/client.html");
 });
+app.get("/pages/admin", (req, res) => {
+  return res.render("html/admin.html");
+});
 
 io.on("connection", (socket: Socket) => {
   // console.log("connected", socket.id);
@@ -28,4 +31,4 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(routes);
 
-export {http, io, PORT}
+export { http, io, PORT };
